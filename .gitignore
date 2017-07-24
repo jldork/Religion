@@ -1,6 +1,9 @@
 *.pyc
 __pycache__
 .vscode
+.ipynb_checkpoints
 venv
 texts/bible
 texts/quran
+quran.txt
+

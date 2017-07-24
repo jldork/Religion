@@ -19,6 +19,7 @@ def get_lines(text, book):
 def clean_text(text, escape=True, linebreak=True, spaces=False):
     if escape:
         text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\xff]', '', text)
+        text = text.replace('\xc2\xb7', '')
     if linebreak:
         text = re.sub(r"(?<=[a-z])\r?\n", " ", text)
     if not spaces:
