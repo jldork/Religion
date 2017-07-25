@@ -3,6 +3,7 @@ import community
 from networkx.drawing.layout import fruchterman_reingold_layout
 from functools import reduce
 
+
 class NetworkFrame:
 
     def __init__(self, df, node_columns):
@@ -17,7 +18,8 @@ class NetworkFrame:
         )
 
     def get_nodes(self):
-        list_of_nodes = [list(self.df[col].unique()) for col in self.node_columns]
+        list_of_nodes = [list(self.df[col].unique())
+                         for col in self.node_columns]
         return set(reduce(lambda x, y: x + y, list_of_nodes))
 
     def get_edges(self):
@@ -35,8 +37,8 @@ class NetworkFrame:
 
     def draw_graph(self, colors=None):
         pos = fruchterman_reingold_layout(self.graph)
-        node_sizes = [ 100000 * x * x + 50 
-            for x in list(self.betweenness.values())]
+        node_sizes = [100000 * x * x + 50
+                      for x in list(self.betweenness.values())]
 
         if not colors:
             parts = community.best_partition(self.graph)

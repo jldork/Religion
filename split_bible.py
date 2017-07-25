@@ -1,5 +1,5 @@
 import os
-from splitter.functions import *
+from bible.splitter import *
 
 book = "texts/bible.txt"
 book_dir = "texts/bible/"
